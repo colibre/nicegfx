@@ -1,0 +1,30 @@
+[package]
+name = "nicegfx"
+version = "0.1.0"
+authors = ["Colibre <colibre5@gmail.com>"]
+edition = "2018"
+
+[features]
+default = []
+gl = ["gfx-backend-gl"]
+vulkan = ["gfx-backend-vulkan"]
+
+[dependencies]
+winit = "=0.17.2"
+
+[dependencies.gfx-hal]
+git = "https://github.com/gfx-rs/gfx"
+rev = "16feb392"
+
+[dependencies.gfx-backend-vulkan]
+git = "https://github.com/gfx-rs/gfx"
+optional = true
+rev = "16feb392"
+
+[dependencies.gfx-backend-gl]
+git = "https://github.com/gfx-rs/gfx"
+rev = "16feb392"
+optional = true
+
+[build-dependencies]
+glsl-to-spirv = "=0.1.6"
