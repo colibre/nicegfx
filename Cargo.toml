@@ -10,20 +10,35 @@ gl = ["gfx-backend-gl"]
 vulkan = ["gfx-backend-vulkan"]
 
 [dependencies]
-winit = "=0.17.2"
+winit = "=0.18"
+image = "0.21"
+log = "0.4.0"
+simple_logger = "1.0"
+failure = "0.1.5"
+arrayvec = "0.4"
 
 [dependencies.gfx-hal]
 git = "https://github.com/gfx-rs/gfx"
-rev = "16feb392"
+rev = "9236fc7bfc0e58489f6481527e434fe0e5487155"
 
 [dependencies.gfx-backend-vulkan]
 git = "https://github.com/gfx-rs/gfx"
+rev = "9236fc7bfc0e58489f6481527e434fe0e5487155"
 optional = true
-rev = "16feb392"
+
+[dependencies.gfx-backend-metal]
+git = "https://github.com/gfx-rs/gfx"
+rev = "9236fc7bfc0e58489f6481527e434fe0e5487155"
+optional = true
+
+[dependencies.gfx-backend-dx12]
+git = "https://github.com/gfx-rs/gfx"
+rev = "9236fc7bfc0e58489f6481527e434fe0e5487155"
+optional = true
 
 [dependencies.gfx-backend-gl]
 git = "https://github.com/gfx-rs/gfx"
-rev = "16feb392"
+rev = "9236fc7bfc0e58489f6481527e434fe0e5487155"
 optional = true
 
 [build-dependencies]

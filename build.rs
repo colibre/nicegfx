@@ -1,18 +1,18 @@
 extern crate glsl_to_spirv;
 
-use std::error::Error;
 use glsl_to_spirv::ShaderType;
+use std::error::Error;
 
 fn main() -> Result<(), Box<Error>> {
     // Run again only if shaders changed
     println!("cargo:rerun-if-changed=pre_assets/shaders");
 
-    //Create 
+    //Create
     std::fs::create_dir_all("assets/shaders")?;
-    
+
     for entry in std::fs::read_dir("pre_assets/shaders")? {
         let entry = entry?;
-        
+
         if entry.file_type()?.is_file() {
             let in_path = entry.path();
 
@@ -30,7 +30,7 @@ fn main() -> Result<(), Box<Error>> {
 
                 let source = std::fs::read_to_string(&in_path)?;
                 let mut compiled_file = glsl_to_spirv::compile(&source, shader_type)?;
-            
+
                 let mut compiled_bytes = Vec::new();
                 compiled_file.read_to_end(&mut compiled_bytes)?;
 
@@ -41,9 +41,7 @@ fn main() -> Result<(), Box<Error>> {
 
                 std::fs::write(&out_path, &compiled_bytes)?;
             }
-
         }
-
     }
 
     Ok(())
